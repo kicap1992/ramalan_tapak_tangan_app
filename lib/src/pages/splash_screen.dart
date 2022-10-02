@@ -1,6 +1,8 @@
 import 'package:cek_tapak_tangan/src/config/theme.dart';
 import 'package:flutter/material.dart';
 
+import '../services/other_services.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -14,11 +16,16 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // initPlatformState();
     // future 3 sec
+
     Future.delayed(const Duration(seconds: 4), () async {
       // await _storage.remove('userData');
-
-      Navigator.pushReplacementNamed(context, 'index');
+      await OtherServices.cekAndDelete();
+      goToIndex();
     });
+  }
+
+  goToIndex() {
+    Navigator.pushReplacementNamed(context, 'index');
   }
 
   @override
@@ -38,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             top: MediaQuery.of(context).size.height * 0.1,
             left: MediaQuery.of(context).size.width * 0.1,
             right: MediaQuery.of(context).size.width * 0.1,
-            child: Center(
+            child: const Center(
               child: Text(
                 "Ramalan \nTelapak Tangan",
                 textAlign: TextAlign.center,
@@ -55,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
             bottom: MediaQuery.of(context).size.height * 0.05,
             left: MediaQuery.of(context).size.width * 0.1,
             right: MediaQuery.of(context).size.width * 0.1,
-            child: Center(
+            child: const Center(
               child: Text(
                 "Created By \nKicap Karan",
                 textAlign: TextAlign.center,

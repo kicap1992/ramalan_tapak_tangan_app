@@ -1,133 +1,42 @@
 import 'package:cek_tapak_tangan/src/widgets/bounce_scoller.dart';
 import 'package:flutter/material.dart';
 
-import '../config/theme.dart';
-
 class ListPage extends StatelessWidget {
   const ListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BounceScrollerWidget(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: ThemeInfo.myGrey,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: ThemeInfo.myGrey,
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            flex: 4,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "tanggal",
-                                  style: const TextStyle(
-                                    color: ThemeInfo.negroTexto,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "asdasd",
-                                  style: const TextStyle(
-                                    color: ThemeInfo.negroTexto,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  '',
-                                  style: const TextStyle(
-                                    color: ThemeInfo.negroTexto,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  // lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                  '',
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  style: const TextStyle(
-                                    color: ThemeInfo.negroTexto,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              width: 40,
-                              height: 40,
-                              decoration: const BoxDecoration(
-                                color: ThemeInfo.primary,
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: ThemeInfo.myGrey,
-                                    blurRadius: 10,
-                                    spreadRadius: 5,
-                                  ),
-                                ],
-                              ),
-                              child: IconButton(
-                                onPressed: () {
-                                  // dev.i("heheheh");
-                                  // showLaporan(context);
-                                },
-                                icon: const Icon(Icons.read_more_outlined),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: BounceScrollerWidget(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Image.asset(
+                    'assets/tapak_tangan1.png',
+                    width: 300,
+                    height: 300,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "     Ada 4 garis pokok yang terdapat pada telapak tangan kiri. Keempat garis utama itu ialah: A. garis kehidupan, B. Garis nasib , C. garis pikiran , D. garis cinta.\n     Garis kehidupan bukan menunjukkan berapa panjang umur seseorang. Tapi menunjukkan kualitas kehidupan yang dijalani. Menunjukkan berapa banyak vitalitas, kekuatan dan energi yang dimiliki. Memberikan gambaran peristiwa apa yang bakal terjadi dalam hiduo orang tersebut dari kecil hingga dewasa, bahkan sampai usia senja\n     Garis nasib menceritakan bagaimana kisah hidup anda berlangsung. Tapi garis nasib lebih menceritakan bagaimana potensi dan kehidupan sosial anda.\n     Garis pikiran mereflesikan pikiran pemiliknya.Bagaimana kepribadian dan sikap seseorang terhadapa apa yang disukai atau dikerjakan\n     Garis cinta mencerminkan kisah cinta, keberuntungan dalam asmara, bahkan kisah cinta dengan selingkuhan.",
+                  textAlign: TextAlign.justify,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.15,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

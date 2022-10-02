@@ -46,6 +46,10 @@ dependencies:
   flutter_dotenv:
   google_fonts: ^3.0.1
   logger:
+  dio:
+  http_parser:
+  path:
+  animated_snack_bar:
 
 
 dev_dependencies:

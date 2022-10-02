@@ -28,7 +28,7 @@ class _ProfilPageState extends State<ProfilPage> {
               width: 100,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white,
+                color: ThemeInfo.primary,
                 // borderRadius: BorderRadius.circular(100),
                 image: DecorationImage(
                   image: AssetImage('assets/loading.gif'),
@@ -42,23 +42,28 @@ class _ProfilPageState extends State<ProfilPage> {
                   ),
                 ],
               ),
-              child: Image.asset(
-                'assets/profile_blank.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Text(
-                "asdsadsa",
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: ThemeInfo.negroTexto,
+              child: Center(
+                child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage('assets/myfoto.jpg'),
+                  onBackgroundImageError: (exception, stackTrace) {
+                    return;
+                  },
                 ),
               ),
             ),
-            _DetailParent(),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                "Riskayani",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: ThemeInfo.primary,
+                ),
+              ),
+            ),
+            const _DetailParent(),
           ],
         ),
       ],
@@ -75,14 +80,24 @@ class _DetailParent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        _DetailChild(
-          icon: Icons.person_pin,
+        const _DetailChild(
+          icon: Icons.list,
           title: "217 280 201",
         ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.1,
-        )
+        const _DetailChild(
+          icon: Icons.person_pin,
+          title: "Ade Hastuty, S.T ., S.Kom ., M.T",
+        ),
+        const _DetailChild(
+          icon: Icons.person_pin,
+          title: "Hj. A. Irmayani P, S.T ., M.T",
+        ),
+        const _DetailChild(
+          icon: Icons.book_outlined,
+          title: "Aplikasi Membaca Garis Tangan Berbasis Android",
+        ),
       ],
     );
   }
@@ -112,7 +127,7 @@ class _DetailChild extends StatelessWidget {
               children: [
                 Icon(
                   icon,
-                  color: ThemeInfo.myGrey,
+                  color: ThemeInfo.primary,
                   size: 40,
                 ),
                 const SizedBox(
@@ -127,7 +142,7 @@ class _DetailChild extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: ThemeInfo.myGrey,
+                      color: ThemeInfo.primary,
                     ),
                   ),
                 ),
