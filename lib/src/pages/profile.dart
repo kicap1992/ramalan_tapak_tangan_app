@@ -45,7 +45,7 @@ class _ProfilPageState extends State<ProfilPage> {
               child: Center(
                 child: CircleAvatar(
                   radius: 100,
-                  backgroundImage: AssetImage('assets/myfoto.jpg'),
+                  backgroundImage: const AssetImage('assets/myfoto.jpg'),
                   onBackgroundImageError: (exception, stackTrace) {
                     return;
                   },
@@ -81,20 +81,20 @@ class _DetailParent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
-      children: [
-        const _DetailChild(
+      children: const [
+        _DetailChild(
           icon: Icons.list,
           title: "217 280 201",
         ),
-        const _DetailChild(
+        _DetailChild(
           icon: Icons.person_pin,
           title: "Ade Hastuty, S.T ., S.Kom ., M.T",
         ),
-        const _DetailChild(
+        _DetailChild(
           icon: Icons.person_pin,
           title: "Hj. A. Irmayani P, S.T ., M.T",
         ),
-        const _DetailChild(
+        _DetailChild(
           icon: Icons.book_outlined,
           title: "Aplikasi Membaca Garis Tangan Berbasis Android",
         ),

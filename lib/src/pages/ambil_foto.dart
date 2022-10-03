@@ -19,7 +19,7 @@ class AmbilFoto extends StatefulWidget {
 
 class _AmbilFotoState extends State<AmbilFoto> {
   final dev = Logger();
-  bool _hasFoto = false; // if has foto
+  // bool _hasFoto = false; // if has foto
   String? _imgPath; // path to foto
   final ImagePicker _picker = ImagePicker();
   XFile? _imageFile; // file to foto
@@ -45,7 +45,7 @@ class _AmbilFotoState extends State<AmbilFoto> {
         setState(() {
           _imgPath = _imageFile!.path.toString();
           imagebytes = bytes;
-          _hasFoto = true;
+          // _hasFoto = true;
         });
       }
       await EasyLoading.show(
@@ -58,7 +58,7 @@ class _AmbilFotoState extends State<AmbilFoto> {
       if (cekFoto!['status'] == 500) return mySnackBar(cekFoto['message'], 1);
       if (cekFoto['status'] == 404) return mySnackBar(cekFoto['message'], 2);
       await EasyLoading.show(
-        status: "Meramal Masa Depan Dari Telapak Tangan Kiri Anda",
+        status: "Membaca Garis Tangan Dari Telapak Tangan Kiri Anda",
         maskType: EasyLoadingMaskType.black,
       );
       setState(() {
@@ -263,7 +263,7 @@ class RamalanAlertDialog extends StatelessWidget {
           children: [
             const Center(
               child: Text(
-                "Ramalan Telapak Tangan",
+                "Deskripsi Garis Tangan",
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold,
@@ -295,7 +295,7 @@ class RamalanAlertDialog extends StatelessWidget {
               height: 10,
             ),
             Text(
-              _ramalan ?? "... Sedang Meramal Telapak Tangan Anda ...",
+              _ramalan ?? "... Sedang Membaca Garis Tangan Anda ...",
               textAlign: TextAlign.justify,
             ),
             const SizedBox(
@@ -309,7 +309,7 @@ class RamalanAlertDialog extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ThemeInfo.primary,
                 ),
-                child: const Text("Ramal Lagi"),
+                child: const Text("Baca Kembali Garis Tangan"),
               ),
             ),
           ],

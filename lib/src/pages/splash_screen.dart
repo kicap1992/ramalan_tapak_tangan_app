@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
             right: MediaQuery.of(context).size.width * 0.1,
             child: const Center(
               child: Text(
-                "Ramalan \nTelapak Tangan",
+                "Membaca Garis \nTelapak Tangan",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: ThemeInfo.background,

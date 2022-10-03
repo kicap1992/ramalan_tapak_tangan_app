@@ -33,7 +33,7 @@ class BottomBarWidget extends StatelessWidget {
             color:
                 (indexSelected == 1) ? ThemeInfo.primary : ThemeInfo.background,
           ),
-          title: 'Ramalan',
+          title: 'Garis Tangan',
         ),
         TabItem(
           icon: Icon(

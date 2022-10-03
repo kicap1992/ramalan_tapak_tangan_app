@@ -21,7 +21,7 @@ class _IndexPageState extends State<IndexPage> {
 
   final List<String> _headerName = [
     'Ensiklopedia ',
-    'Halaman Ramalan',
+    'Membaca Garis Tangan',
     'Halaman Profil',
   ];
 
