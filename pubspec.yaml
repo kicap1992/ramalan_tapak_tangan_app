@@ -50,7 +50,7 @@ dependencies:
   http_parser:
   path:
   animated_snack_bar:
-
+  permission_handler:
 
 dev_dependencies:
   flutter_test:

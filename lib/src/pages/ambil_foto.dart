@@ -26,6 +26,11 @@ class _AmbilFotoState extends State<AmbilFoto> {
   Uint8List? imagebytes;
   String? ramalannya;
 
+  List<String> gender = ['Laki-laki', 'Perempuan'];
+  String genderValue = 'Laki-laki';
+  List<String> umur = ['Anak-anak', 'Dewasa', 'Lanjut Usia'];
+  String umurValue = 'Anak-anak';
+
   @override
   void initState() {
     super.initState();
@@ -49,7 +54,8 @@ class _AmbilFotoState extends State<AmbilFoto> {
         });
       }
       await EasyLoading.show(
-        status: "Periksa Foto",
+        // status: "Periksa Foto",
+        status: "Membaca Garis Tangan Dari Telapak Tangan Kiri Anda",
         maskType: EasyLoadingMaskType.black,
       );
       Map? cekFoto = await ApiServices.cekFoto(_imgPath);
@@ -57,25 +63,26 @@ class _AmbilFotoState extends State<AmbilFoto> {
       // dev.i(cekFoto);
       if (cekFoto!['status'] == 500) return mySnackBar(cekFoto['message'], 1);
       if (cekFoto['status'] == 404) return mySnackBar(cekFoto['message'], 2);
-      await EasyLoading.show(
-        status: "Membaca Garis Tangan Dari Telapak Tangan Kiri Anda",
-        maskType: EasyLoadingMaskType.black,
-      );
-      setState(() {
-        ramalannya = null;
-      });
+      // await EasyLoading.show(
+      //   status: "Membaca Garis Tangan Dari Telapak Tangan Kiri Anda",
+      //   maskType: EasyLoadingMaskType.black,
+      // );
+      // setState(() {
+      //   ramalannya = null;
+      // });
 
-      Map? cekRamalan = await ApiServices.cekRamalan(_imgPath);
-      await EasyLoading.dismiss();
-      // dev.i(cekFoto);
-      if (cekRamalan!['status'] == 500) {
-        return mySnackBar(cekRamalan['message'], 1);
-      }
-      if (cekRamalan['status'] == 404) {
-        return mySnackBar(cekRamalan['message'], 2);
-      }
+      // Map? cekRamalan = await ApiServices.cekRamalan(_imgPath);
+      // await EasyLoading.dismiss();
+      // // dev.i(cekFoto);
+      // if (cekRamalan!['status'] == 500) {
+      //   return mySnackBar(cekRamalan['message'], 1);
+      // }
+      // if (cekRamalan['status'] == 404) {
+      //   return mySnackBar(cekRamalan['message'], 2);
+      // }
       setState(() {
-        ramalannya = cekRamalan['message'];
+        ramalannya = cekFoto['message'];
+        // ramalannya = cekRamalan['message'];
       });
       await EasyLoading.dismiss();
 
@@ -213,6 +220,108 @@ class _AmbilFotoState extends State<AmbilFoto> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Jenis Kelamin',
+                    labelStyle: const TextStyle(
+                      color: ThemeInfo.primary,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                  value: genderValue,
+                  items: gender.map((String value) {
+                    return DropdownMenuItem(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          color: ThemeInfo.primary,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (item) {
+                    // log(item.toString() + " ini item");
+                    setState(() {
+                      genderValue = item.toString();
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Umur',
+                    labelStyle: const TextStyle(
+                      color: ThemeInfo.primary,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: ThemeInfo.primary,
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                  value: umurValue,
+                  items: umur.map((String value) {
+                    return DropdownMenuItem(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          color: ThemeInfo.primary,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (item) {
+                    // log(item.toString() + " ini item");
+                    setState(() {
+                      umurValue = item.toString();
+                    });
+                  },
                 ),
               ),
               const SizedBox(

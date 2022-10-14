@@ -7,11 +7,12 @@ import 'package:path/path.dart';
 class ApiServices {
   static final dev = Logger();
   static final url = dotenv.env['URL'];
+  // static final url = "http://192.168.218.21:9000/";
 
   static final options = BaseOptions(
     baseUrl: url!,
-    connectTimeout: 5000,
-    receiveTimeout: 5000,
+    connectTimeout: 120000,
+    receiveTimeout: 120000,
   );
 
   static Dio dio = Dio(options);
